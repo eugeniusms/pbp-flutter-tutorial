@@ -15,6 +15,7 @@ class _MyFormPageState extends State<MyFormPage> {
     bool jenjangDiploma = false;
     bool jenjangMagister = false;
     bool jenjangDoktor = false;
+    String jenjangDipilih = "";
     double umur = 0;
     String kelasPBP = 'A';
     List<String> listKelasPBP = ['A', 'B', 'C', 'D', 'E', 'F', 'KI'];
@@ -115,6 +116,7 @@ class _MyFormPageState extends State<MyFormPage> {
                                       jenjangSarjana = value!;
                                       if (value){
                                           jenjangMagister = jenjangDiploma = jenjangDoktor = false;
+                                          jenjangDipilih = "Sarjana";
                                       }
                                   });
                                   },
@@ -127,6 +129,7 @@ class _MyFormPageState extends State<MyFormPage> {
                                       jenjangDiploma = value!;
                                       if (value){
                                           jenjangMagister = jenjangSarjana = jenjangDoktor = false;
+                                          jenjangDipilih = "Diploma";
                                       }
                                   });
                                   },
@@ -139,6 +142,7 @@ class _MyFormPageState extends State<MyFormPage> {
                                       jenjangMagister = value!;
                                       if (value){
                                           jenjangDiploma = jenjangSarjana = jenjangDoktor = false;
+                                          jenjangDipilih = "Magister";
                                       }
                                   });
                                   },
@@ -151,6 +155,7 @@ class _MyFormPageState extends State<MyFormPage> {
                                       jenjangDoktor = value!;
                                       if (value){
                                           jenjangMagister = jenjangSarjana = jenjangDiploma = false;
+                                          jenjangDipilih = "Doktor";
                                       }
                                   });
                                   },
@@ -233,6 +238,15 @@ class _MyFormPageState extends State<MyFormPage> {
                                           children: <Widget>[
                                             Center(child: const Text('Informasi Data')),
                                             SizedBox(height: 20),
+                                            Center(
+                                              child: Column(children: [
+                                                Text('Nama Lengkap:  $_namaLengkap'),
+                                                Text('Jenjang:  $jenjangDipilih'),
+                                                Text('Umur:  $umur'),
+                                                Text('Kelas PBP:  $kelasPBP'),
+                                                Text('Mode Practice:  $_nilaiSwitch')
+                                              ]),
+                                            ),
                                             // TODO: Munculkan informasi yang didapat dari form
                                             TextButton(
                                               onPressed: () {
